@@ -4,14 +4,19 @@ import { LastFiveDaysImagesProps } from '../../types';
 import PostImage from '../PostImage';
 
 
-const LastFiveDaysImages: FC<{Apods: LastFiveDaysImagesProps}> = ({ Apods }) => {
+const LastFiveDaysImages: FC<LastFiveDaysImagesProps> = ({ Apods }: LastFiveDaysImagesProps) => {
+
+  const renderApods = (): React.ReactNode => {
+    return Apods?.map(post => {
+        return <PostImage Apod={post} key={`post-image${post.title}`} />
+    })
+  }
+
   return (
     <View style={styles.container}>
         <Text style={styles.title}>Last 5 Days</Text>
         <ScrollView style={styles.content}>
-            {Apods?.Apods?.length > 0 ? Apods?.Apods?.map(post => {
-                <PostImage Apod={post} key={`post-image${post.title}`} />
-            }): <Text>Hola</Text>}
+            {renderApods()}
         </ScrollView>
     </View>
   )
