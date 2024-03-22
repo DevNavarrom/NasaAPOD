@@ -13,14 +13,14 @@ import {
   View,
 } from 'react-native';
 
-import Home from './src/views/Home';
+import Routes from './src/routes';
 
 function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerAndroid}>
-        <Home />
+        <Routes />
       </View>
     </SafeAreaView>
   );

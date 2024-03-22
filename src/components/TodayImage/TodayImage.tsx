@@ -1,16 +1,25 @@
 import React, { FC } from "react";
 import { Button, Image, StyleSheet, Text, View } from "react-native";
-import { TodayImageProps } from "../../types";
+import { useNavigation } from "@react-navigation/native";
+
+import { PostImageNavigationProps, TodayImageProps } from "../../types";
 
 
 const TodayImage: FC<TodayImageProps> = ({ Apod }: TodayImageProps) => {
+
+  const { navigate } = useNavigation<PostImageNavigationProps>();
+
+  const handleViewPress = () => {
+    navigate('Detail', Apod);
+  }
+
   return (
     <View style={styles.container}>
         <Image source={{ uri: Apod.url }} style={styles.image} />
         <Text style={styles.title}>{Apod.title}</Text>
         <Text style={styles.date}>{Apod.date}</Text>
         <View style={styles.buttonContainer}>
-            <Button title="View" />
+            <Button title="View" onPress={handleViewPress} />
         </View>
     </View>
   )
