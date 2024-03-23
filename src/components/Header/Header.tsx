@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         color: '#FFF'
     },
     image: {
-        width: 60,
+        width: 70,
         height: 60,
     }
 });
